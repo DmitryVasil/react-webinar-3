@@ -9,12 +9,6 @@ function Item(props){
   const [count, setCount] = useState(0);
 
   const callbacks = {
-    onClick: () => {
-      props.onSelect(props.item.code);
-      if (!props.item.selected) {
-        setCount(count + 1);
-      }
-    },
     onDelete: (e) => {
       e.stopPropagation();
       props.onDelete(props.item.code);
@@ -26,11 +20,14 @@ function Item(props){
          onClick={callbacks.onClick}>
       <div className='Item-code'>{props.item.code}</div>
       <div className='Item-title'>
-        {props.item.title} {count ? ` | Выделяли ${count} ${plural(count, {one: 'раз', few: 'раза', many: 'раз'})}` : ''}
+        {props.item.title} 
+      </div>
+      <div className="Item-price">
+        {props.item.price}&nbsp;₽
       </div>
       <div className='Item-actions'>
-        <button onClick={callbacks.onDelete}>
-          Удалить
+        <button onClick={()=> props.onAddToBasket(props.item)}>
+          Добавить
         </button>
       </div>
     </div>

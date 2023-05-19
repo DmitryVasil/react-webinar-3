@@ -1,0 +1,11 @@
+.Basket {
+  display: flex;
+  justify-content: flex-end;
+  transition: background-color 1s;
+  padding: 20px;
+  border-bottom: 1px dashed #ccc;
+}
+
+.Basket-descr {
+  padding: 0 20px;
+}

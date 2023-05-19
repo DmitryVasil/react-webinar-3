@@ -50,6 +50,15 @@ class Store {
     })
   };
 
+  addItemToBasket(code) {
+    const basketList = [...this.state.basketList];
+    const product = this.state.list.find(el => el.code == code);
+    basketList.push({
+      ...item,
+      count: 1
+    })
+  }
+
   /**
    * Удаление записи по коду
    * @param code
